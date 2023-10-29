@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://clkecp2ta7jr6"]
+
+[ext_resource type="Script" path="res://entrance.gd" id="1_ktjv5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_166a3"]
+height = 100.0
+radius = 1.0
+
+[node name="entrance" type="StaticBody3D"]
+script = ExtResource("1_ktjv5")
+
+[node name="sprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2, 0)
+billboard = 2
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_166a3")

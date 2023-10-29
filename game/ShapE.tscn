@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvv7whuj8q11a"]
+
+[ext_resource type="Script" path="res://shape.gd" id="1_uoo7i"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_166a3"]
+resource_local_to_scene = true
+height = 100.0
+radius = 1.0
+
+[node name="entrance" type="StaticBody3D" groups=["non-selectable"]]
+script = ExtResource("1_uoo7i")
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_166a3")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

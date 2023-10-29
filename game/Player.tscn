@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bx2lxm6al7np8"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_tyll8"]
+[ext_resource type="Script" path="res://values.gd" id="3_4448i"]
+[ext_resource type="Script" path="res://audio.gd" id="4_nkwqe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_facod"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r40ep"]
+height = 0.9
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3lkh7"]
+
+[sub_resource type="Sky" id="Sky_l0wom"]
+sky_material = SubResource("PanoramaSkyMaterial_3lkh7")
+
+[sub_resource type="Environment" id="Environment_vvb58"]
+background_mode = 2
+sky = SubResource("Sky_l0wom")
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_tyll8")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_facod")
+
+[node name="hitbox_crouch" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_r40ep")
+disabled = true
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="camera" type="Camera3D" parent="head"]
+environment = SubResource("Environment_vvb58")
+fov = 90.0
+near = 0.01
+far = 100.0
+
+[node name="values" type="Node" parent="."]
+script = ExtResource("3_4448i")
+
+[node name="audio" type="Node" parent="."]
+script = ExtResource("4_nkwqe")
